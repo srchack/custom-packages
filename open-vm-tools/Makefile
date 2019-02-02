@@ -113,17 +113,17 @@ define Package/open-vm-tools/install
 	$(INSTALL_DIR) $(1)/lib/udev/rules.d/
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/open-vm-tools/udev/99-vmware-scsi-udev.rules $(1)/lib/udev/rules.d/
 
-	$(INSTALL_DIR) $(1)/share/open-vm-tools/messages/ko/
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/open-vm-tools/services/vmtoolsd/l10n/ko.vmsg $(1)/share/open-vm-tools/messages/ko/vmtoolsd.vmsg
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/open-vm-tools/toolbox/l10n/ko.vmsg $(1)/share/open-vm-tools/messages/ko/toolboxcmd.vmsg
-	$(INSTALL_DIR) $(1)/share/open-vm-tools/messages/de/
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/open-vm-tools/services/vmtoolsd/l10n/de.vmsg $(1)/share/open-vm-tools/messages/de/vmtoolsd.vmsg
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/open-vm-tools/toolbox/l10n/de.vmsg $(1)/share/open-vm-tools/messages/de/toolboxcmd.vmsg
-	$(INSTALL_DIR) $(1)/share/open-vm-tools/messages/ja/
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/open-vm-tools/services/vmtoolsd/l10n/ja.vmsg $(1)/share/open-vm-tools/messages/ja/vmtoolsd.vmsg
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/open-vm-tools/toolbox/l10n/ja.vmsg $(1)/share/open-vm-tools/messages/ja/toolboxcmd.vmsg
-	$(INSTALL_DIR) $(1)/share/open-vm-tools/messages/zh_CN/
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/open-vm-tools/toolbox/l10n/zh_CN.vmsg $(1)/share/open-vm-tools/messages/zh_CN/toolboxcmd.vmsg
+	$(INSTALL_DIR) $(1)/usr/share/open-vm-tools/messages/ko/
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/open-vm-tools/services/vmtoolsd/l10n/ko.vmsg $(1)/usr/share/open-vm-tools/messages/ko/vmtoolsd.vmsg
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/open-vm-tools/toolbox/l10n/ko.vmsg $(1)/usr/share/open-vm-tools/messages/ko/toolboxcmd.vmsg
+	$(INSTALL_DIR) $(1)/usr/share/open-vm-tools/messages/de/
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/open-vm-tools/services/vmtoolsd/l10n/de.vmsg $(1)/usr/share/open-vm-tools/messages/de/vmtoolsd.vmsg
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/open-vm-tools/toolbox/l10n/de.vmsg $(1)/usr/share/open-vm-tools/messages/de/toolboxcmd.vmsg
+	$(INSTALL_DIR) $(1)/usr/share/open-vm-tools/messages/ja/
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/open-vm-tools/services/vmtoolsd/l10n/ja.vmsg $(1)/usr/share/open-vm-tools/messages/ja/vmtoolsd.vmsg
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/open-vm-tools/toolbox/l10n/ja.vmsg $(1)/usr/share/open-vm-tools/messages/ja/toolboxcmd.vmsg
+	$(INSTALL_DIR) $(1)/usr/share/open-vm-tools/messages/zh_CN/
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/open-vm-tools/toolbox/l10n/zh_CN.vmsg $(1)/usr/share/open-vm-tools/messages/zh_CN/toolboxcmd.vmsg
 endef
 
 $(eval $(call BuildPackage,open-vm-tools))
