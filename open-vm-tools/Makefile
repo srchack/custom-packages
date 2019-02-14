@@ -28,6 +28,7 @@ define Package/open-vm-tools
   DEPENDS:=@TARGET_x86 +glib2 +libpthread +libtirpc
   TITLE:=open-vm-tools
   URL:=https://github.com/vmware/open-vm-tools
+  MAINTAINER:=YuheiOKAWA <tochiro.srchack@gmail.com>
 endef
 
 define Package/open-vm-tools-vm-tools/description
