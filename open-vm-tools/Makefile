@@ -19,6 +19,7 @@ PKG_INSTALL:=1
 
 PKG_FIXUP:=autoreconf
 PKG_LICENSE:=LGPL-2.1
+PKG_LICENSE_FILES:=LICENSE
 
 include $(INCLUDE_DIR)/package.mk
 
