@@ -83,8 +83,8 @@ define Package/open-vm-tools/install
 	$(INSTALL_DIR) $(1)/usr/lib/open-vm-tools/plugins/vmsvc/
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/usr/lib/open-vm-tools/plugins/vmsvc/*.so* $(1)/usr/lib/open-vm-tools/plugins/vmsvc/
 
-	$(INSTALL_DIR) $(1)/lib/udev/rules.d/
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/udev/99-vmware-scsi-udev.rules $(1)/lib/udev/rules.d/
+	$(INSTALL_DIR) $(1)/etc/hotplug.d/block/
+	$(INSTALL_BIN) ./files/vmware-scsi.hotplug $(1)/etc/hotplug.d/block/80-vmware-scsi
 
 	$(INSTALL_DIR) $(1)/usr/share/open-vm-tools/messages/
 	$(CP) $(PKG_INSTALL_DIR)/usr/share/open-vm-tools/messages/* $(1)/usr/share/open-vm-tools/messages/
