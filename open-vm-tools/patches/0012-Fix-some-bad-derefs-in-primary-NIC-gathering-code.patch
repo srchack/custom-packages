@@ -11,10 +11,10 @@ Debug code tries to access a struct field that may not have been initialized.
  open-vm-tools/lib/nicInfo/nicInfoPosix.c | 39 +++++++++++++++++++++-----------
  1 file changed, 26 insertions(+), 13 deletions(-)
 
-diff --git a/open-vm-tools/lib/nicInfo/nicInfoPosix.c b/open-vm-tools/lib/nicInfo/nicInfoPosix.c
+diff --git a/lib/nicInfo/nicInfoPosix.c b/lib/nicInfo/nicInfoPosix.c
 index 8a063a0..31c1d1a 100644
---- a/open-vm-tools/lib/nicInfo/nicInfoPosix.c
-+++ b/open-vm-tools/lib/nicInfo/nicInfoPosix.c
+--- a/lib/nicInfo/nicInfoPosix.c
++++ b/lib/nicInfo/nicInfoPosix.c
 @@ -359,7 +359,7 @@ GuestInfoGetNicInfo(unsigned int maxIPv4Routes,
  
     /* Get a handle to read the network interface configuration details. */

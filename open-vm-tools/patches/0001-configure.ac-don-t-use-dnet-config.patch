@@ -1,6 +1,6 @@
-diff -urN a/open-vm-tools/configure.ac b/open-vm-tools/configure.ac
---- a/open-vm-tools/configure.ac
-+++ b/open-vm-tools/configure.ac
+diff -urN a/configure.ac b/configure.ac
+--- a/configure.ac
++++ b/configure.ac
 @@ -949,7 +949,7 @@
        AC_VMW_CHECK_LIB([dnet],
                         [DNET],
