@@ -68,26 +68,48 @@ define Package/open-vm-tools/install
 	$(CP) $(PKG_INSTALL_DIR)/etc/vmware-tools $(1)/etc/
 
 	$(INSTALL_DIR) $(1)/bin/
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/* $(1)/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vmtoolsd $(1)/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vmware-checkvm $(1)/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vmware-hgfsclient $(1)/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vmware-namespace-cmd $(1)/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vmware-rpctool $(1)/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vmware-toolbox-cmd $(1)/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vmware-xferlogs $(1)/bin/
 
 	$(INSTALL_DIR) $(1)/sbin/
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/sbin/mount.vmhgfs $(1)/sbin/
 	$(INSTALL_BIN) ./files/shutdown $(1)/sbin/
 
 	$(INSTALL_DIR) $(1)/lib/
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/*.so* $(1)/lib/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libguestlib.so* $(1)/lib/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libhgfs.so* $(1)/lib/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libvmtools.so* $(1)/lib/
 
 	$(INSTALL_DIR) $(1)/usr/lib/open-vm-tools/plugins/common/
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/usr/lib/open-vm-tools/plugins/common/*.so* $(1)/usr/lib/open-vm-tools/plugins/common/
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/usr/lib/open-vm-tools/plugins/common/libhgfsServer.so $(1)/usr/lib/open-vm-tools/plugins/common/
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/usr/lib/open-vm-tools/plugins/common/libvix.so $(1)/usr/lib/open-vm-tools/plugins/common/
 
 	$(INSTALL_DIR) $(1)/usr/lib/open-vm-tools/plugins/vmsvc/
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/usr/lib/open-vm-tools/plugins/vmsvc/*.so* $(1)/usr/lib/open-vm-tools/plugins/vmsvc/
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/usr/lib/open-vm-tools/plugins/vmsvc/libguestInfo.so $(1)/usr/lib/open-vm-tools/plugins/vmsvc/
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/usr/lib/open-vm-tools/plugins/vmsvc/libpowerOps.so $(1)/usr/lib/open-vm-tools/plugins/vmsvc/
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/usr/lib/open-vm-tools/plugins/vmsvc/libresolutionKMS.so $(1)/usr/lib/open-vm-tools/plugins/vmsvc/
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/usr/lib/open-vm-tools/plugins/vmsvc/libtimeSync.so $(1)/usr/lib/open-vm-tools/plugins/vmsvc/
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/usr/lib/open-vm-tools/plugins/vmsvc/libvmbackup.so $(1)/usr/lib/open-vm-tools/plugins/vmsvc/
 
 	$(INSTALL_DIR) $(1)/etc/hotplug.d/block/
 	$(INSTALL_BIN) ./files/vmware-scsi.hotplug $(1)/etc/hotplug.d/block/80-vmware-scsi
 
-	$(INSTALL_DIR) $(1)/usr/share/open-vm-tools/messages/
-	$(CP) $(PKG_INSTALL_DIR)/usr/share/open-vm-tools/messages/* $(1)/usr/share/open-vm-tools/messages/
+	$(INSTALL_DIR) $(1)/usr/share/open-vm-tools/messages/de/
+	$(CP) $(PKG_INSTALL_DIR)/usr/share/open-vm-tools/messages/de/toolboxcmd.vmsg $(1)/usr/share/open-vm-tools/messages/de/
+	$(CP) $(PKG_INSTALL_DIR)/usr/share/open-vm-tools/messages/de/vmtoolsd.vmsg $(1)/usr/share/open-vm-tools/messages/de/
+	$(INSTALL_DIR) $(1)/usr/share/open-vm-tools/messages/ko/
+	$(CP) $(PKG_INSTALL_DIR)/usr/share/open-vm-tools/messages/ko/toolboxcmd.vmsg $(1)/usr/share/open-vm-tools/messages/ko/
+	$(CP) $(PKG_INSTALL_DIR)/usr/share/open-vm-tools/messages/ko/vmtoolsd.vmsg $(1)/usr/share/open-vm-tools/messages/ko/
+	$(INSTALL_DIR) $(1)/usr/share/open-vm-tools/messages/zh_CN/
+	$(CP) $(PKG_INSTALL_DIR)/usr/share/open-vm-tools/messages/zh_CN/toolboxcmd.vmsg $(1)/usr/share/open-vm-tools/messages/zh_CN/
+	$(INSTALL_DIR) $(1)/usr/share/open-vm-tools/messages/ja/
+	$(CP) $(PKG_INSTALL_DIR)/usr/share/open-vm-tools/messages/ja/toolboxcmd.vmsg $(1)/usr/share/open-vm-tools/messages/ja/
+	$(CP) $(PKG_INSTALL_DIR)/usr/share/open-vm-tools/messages/ja/vmtoolsd.vmsg $(1)/usr/share/open-vm-tools/messages/ja/
 endef
 
 $(eval $(call BuildPackage,open-vm-tools))
