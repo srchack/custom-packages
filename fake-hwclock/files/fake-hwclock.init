@@ -1,0 +1,25 @@
+#!/bin/sh /etc/rc.common
+
+START=19
+STOP=88
+
+boot() {
+	echo "Starting fake hwclock: loading system time."
+	fake-hwclock load
+}
+
+start() {
+	echo "Starting fake hwclock: loading system time."
+	fake-hwclock load
+}
+
+restart() {
+	echo "Stopping fake hwclock: saving system time."
+	fake-hwclock save
+}
+
+stop() {
+	echo "Stopping fake hwclock: saving system time."
+	fake-hwclock save
+}
+

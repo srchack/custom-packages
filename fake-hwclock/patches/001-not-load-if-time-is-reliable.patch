@@ -1,0 +1,14 @@
+diff -urNp a/fake-hwclock b/fake-hwclock
+--- a/fake-hwclock
++++ b/fake-hwclock
+@@ -51,7 +51,9 @@ case $COMMAND in
+             SAVED_SEC=$(date -u -d "$SAVED" '+%s')
+             NOW_SEC=$(date -u '+%s')
+             if $FORCE || [ $NOW_SEC -le $SAVED_SEC ] ; then
+-                date -u -s "$SAVED"
++                if [ ! -e /var/state/dnsmasqsec ] ; then
++                    date -u -s "$SAVED"
++                fi
+             else
+                 echo "Current system time: $(date -u '+%Y-%m-%d %H:%M:%S')"
+                 echo "fake-hwclock saved clock information is in the past: $SAVED"
